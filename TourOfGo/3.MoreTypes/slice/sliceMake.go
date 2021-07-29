@@ -6,12 +6,13 @@ import (
 )
 
 func main2() {
-	a := make([]int, 5) // nilではなく0で埋められたスライスを生成
+	a := make([]int, 5) // nilではなく0で埋められたスライスを生成 ⭐️
+	// len=5 cap=5 [0 0 0 0 0]
 	printSlice2("a", a)
 
 	//        型    長さ 最大要素数
 	b := make([]int, 0, 5)
-	printSlice2("b", b) // len=5 cap=5 [0 0 0 0 0]
+	printSlice2("b", b) // len=5 cap=5 []
 
 	c := b[:2]          // capは変わらない
 	printSlice2("c", c) // len=2 cap=5 [0 0]
