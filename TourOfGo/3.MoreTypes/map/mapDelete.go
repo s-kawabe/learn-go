@@ -19,7 +19,7 @@ func main2() {
 }
 
 /*
-キーに対する要素が存在するかどうか(okはbookean型)
+キーに対する要素が存在するかどうか(okはboolean型)
 elem, ok = m[key]
 
 mapからキーを元に要素を削除する
