@@ -13,6 +13,7 @@ func main() {
 		fmt.Println("OS X")
 	case "linux":
 		fmt.Println("Linux")
+		// fallthrough  =>  jsでbreakを書かないのと同じ動きになる
 	default:
 		fmt.Printf("%s\n", os)
 	}
@@ -31,4 +32,5 @@ func main() {
 
 /*
 Goのswitchはreturnを書かずとも自動的にbreakされ、次のcaseに流れることはない。
+しかしfallthroughキーワードを記述することで次の節に流すことができる。
 */
