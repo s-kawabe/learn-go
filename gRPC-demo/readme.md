@@ -90,7 +90,7 @@ npx create-next-app client --ts
 サーバー
 
 ```
-protoc --go_out=plugins=grpc:api/hello -I=proto proto/hello.proto
+protoc --go_out=plugins=grpc:api/hello -I=proto proto/hello.proto 
 ```
 
 クライアント
@@ -102,8 +102,12 @@ Code Generator Plugin
 $ sudo mv ~/Downloads/protoc-gen-grpc-web-1.2.1-darwin-x86_64 \
     /usr/local/bin/protoc-gen-grpc-web
 $ chmod +x /usr/local/bin/protoc-gen-grpc-web
+```
 
 ```
+protoc --grpc-web_out=import_style=typescript,mode=grpcwebtext:client/src/api --js_out=import_style=commonjs:client/src/api -I=proto proto/hello.proto
+```
+→ここで権限系の注意が出るが許可する。
 
 ## error集
 
