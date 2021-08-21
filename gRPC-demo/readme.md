@@ -21,8 +21,31 @@ gRPCクライアントとサーバーは、Google内のサーバーから独自�
 - １対１、多対１、多対多など様々なバリエーションの通信方法が実現可能
 
 ### Protocol Buffers
-Protocol Buffersは構造化されたデータをシリアライズするデータフォーマットで、gRPCdeha
+Protocol Buffersは構造化されたデータをシリアライズするデータフォーマットで、gRPCでは
 デフォルトのフォーマットとなっておりGoogleが開発している。
+
+### GOPATHとは
+> Go1.16がリリースされたことでGo-Moduleによるプロジェクト構成が標準で推奨されることになりました。
+
+最初はGOPATHではなくGoModuleモードでやればよいらしい。
+
+### Goにおけるモジュールとパッケージ
+
+- モジュール
+パッケージを一つまたは複数のサブパッケージを取りまとめたカタマリ。
+
+- パッケージ
+フォルダ単位で単一ファイルまたは複数ファイルのカタマリ。
+
+- サブパッケージ
+サブフォルダにおくだけで扱いはパッケージと同等。
+
+```
+go mod init <モジュール名>
+```
+
+あるフォルダ内でこれを実行するとそのフォルダ以下が`モジュール`となる。
+カレントフォルダにgo.modファイルが作成され、このカレントフォルダ以下がまるっと「モジュール」の扱いになる。
 
 ## setup
 
@@ -47,3 +70,24 @@ protoc --version
 ```
 npx create-next-app client --ts
 ```
+
+## code generate
+
+```
+protoc --go_out=plugins=grpc:api/hello -I=proto proto/hello.proto
+```
+
+## error集
+
+- Go側のコードをprotoから生成する際
+
+```
+protoc-gen-go: unable to determine Go import path for "hello.proto"
+
+Please specify either:
+        • a "go_package" option in the .proto source file, or
+        • a "M" argument on the command line.
+```
+
+→ proto内にはgo_packageの指定をしなければいけないらしい
+→ GOPATHを使用している場合と、していない場合(go_modules)で対処法が異なる。
