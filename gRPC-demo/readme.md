@@ -1,5 +1,10 @@
 # gRPC-web sandbox
 
+## 参考
+
+https://qiita.com/Le0tk0k/items/af2fbf1d246f0a788ec3
+https://zenn.dev/mikankitten/articles/0437fa6fb7de82
+
 ## introduction
 
 [introduction gRPC](https://grpc.io/docs/what-is-grpc/introduction/)
@@ -58,8 +63,17 @@ go version
 go mod init gRPC-demo/api
 ```
 
+- brewでの自動生成モジュールインストール?
+
 ```
 brew install protobuf protoc-gen-grpc-web protoc-gen-go
+```
+
+- go intallでGo用のプロトコルコンパイラプラグイン? →入れたけど関係ない？
+
+```
+go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.26
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.1
 ```
 
 ```
@@ -73,8 +87,22 @@ npx create-next-app client --ts
 
 ## code generate
 
+サーバー
+
 ```
 protoc --go_out=plugins=grpc:api/hello -I=proto proto/hello.proto
+```
+
+クライアント
+https://github.com/grpc/grpc-web#code-generator-plugin
+
+Code Generator Plugin
+
+```
+$ sudo mv ~/Downloads/protoc-gen-grpc-web-1.2.1-darwin-x86_64 \
+    /usr/local/bin/protoc-gen-grpc-web
+$ chmod +x /usr/local/bin/protoc-gen-grpc-web
+
 ```
 
 ## error集

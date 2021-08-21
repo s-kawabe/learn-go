@@ -1,3 +1,3 @@
-module gRPC-demo/api
+module api
 
 go 1.16
