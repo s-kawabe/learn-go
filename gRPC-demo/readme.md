@@ -89,8 +89,11 @@ npx create-next-app client --ts
 
 サーバー
 
+これでなんかいけた
 ```
-protoc --go_out=plugins=grpc:api/hello -I=proto proto/hello.proto 
+--go_out=api/hello --go_opt=paths=source_relative \
+--go-grpc_out=api/hello --go-grpc_opt=paths=source_relative \
+proto/hello.proto
 ```
 
 クライアント

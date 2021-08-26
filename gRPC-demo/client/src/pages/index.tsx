@@ -24,7 +24,7 @@ const Home: NextPage = () => {
 
   const onClick = async () => {
     const req = new HelloRequest()
-    console.log(req);
+    // console.log(req);
     req.setName(name)
     req.setAge(age)
     req.setEmail(email)
