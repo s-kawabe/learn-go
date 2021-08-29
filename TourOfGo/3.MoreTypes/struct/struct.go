@@ -31,7 +31,7 @@ type Vertex2 struct {
 
 var (
 	v1 = Vertex2{1, 2}
-	v2 = Vertex2{X: 1} // Yは0
+	v2 = Vertex2{X: 1} // Yは0 🌟
 	v3 = Vertex2{}     // XもYも0
 	p  = &Vertex2{1, 2}
 )
@@ -39,3 +39,5 @@ var (
 func main2() {
 	fmt.Println(v1, p, v2, v3) // => {1 2} &{1 2} {1 0} {0 0}
 }
+
+// 基本的には🌟部分のようなフィールドを明示的に指定する書き方を選択するべき。
