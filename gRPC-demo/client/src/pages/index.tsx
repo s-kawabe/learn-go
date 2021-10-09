@@ -23,14 +23,18 @@ const Home: NextPage = () => {
   }
 
   const onClick = async () => {
-    const req = new HelloRequest()
-    // console.log(req);
-    req.setName(name)
-    req.setAge(age)
-    req.setEmail(email)
-    const client = new HelloServiceClient("http://localhost:8080")
-    const res = await client.sayHello(req, {})
-    setMessage(res.getMessage())
+    try {
+      const req = new HelloRequest()
+      req.setName(name)
+      req.setAge(age)
+      req.setEmail(email)
+      const client = new HelloServiceClient("http://localhost:8080")
+      const res = await client.sayHello(req, {})
+      setMessage(res.getMessage())
+    } catch(e) {
+      alert("oops!")
+      console.log(e);
+    }
   }
 
   return (

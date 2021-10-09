@@ -5,3 +5,4 @@ services:
       context:  ./proxy
     ports:
       - "8080:8080"
+    platform: linux/arm64

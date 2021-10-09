@@ -114,7 +114,7 @@ protoc --grpc-web_out=import_style=typescript,mode=grpcwebtext:client/src/api --
 
 ## error集
 
-- Go側のコードをprotoから生成する際
+### Go側のコードをprotoから生成する際
 
 ```
 protoc-gen-go: unable to determine Go import path for "hello.proto"
@@ -126,3 +126,13 @@ Please specify either:
 
 → proto内にはgo_packageの指定をしなければいけないらしい
 → GOPATHを使用している場合と、していない場合(go_modules)で対処法が異なる。
+
+### envoyがうごかない
+
+```
+typed_config:
+          "@type": type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager
+```
+
+typed-configやらをv3にする必要があるらしい
+あとM1ならばenvoyproxy/envoy自体のversionも1.19以上でないとダメだと思う
