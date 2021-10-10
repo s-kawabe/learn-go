@@ -1,4 +1,3 @@
-/* eslint-disable */
 // source: hello.proto
 /**
  * @fileoverview
