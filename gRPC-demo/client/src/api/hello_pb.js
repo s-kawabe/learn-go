@@ -91,9 +91,8 @@ proto.hello.HelloRequest.prototype.toObject = function(opt_includeInstance) {
  */
 proto.hello.HelloRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    email: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    age: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    title: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    task: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -132,15 +131,11 @@ proto.hello.HelloRequest.deserializeBinaryFromReader = function(msg, reader) {
     switch (field) {
     case 1:
       var value = /** @type {string} */ (reader.readString());
-      msg.setName(value);
+      msg.setTitle(value);
       break;
     case 2:
       var value = /** @type {string} */ (reader.readString());
-      msg.setEmail(value);
-      break;
-    case 3:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setAge(value);
+      msg.setTask(value);
       break;
     default:
       reader.skipField();
@@ -171,24 +166,17 @@ proto.hello.HelloRequest.prototype.serializeBinary = function() {
  */
 proto.hello.HelloRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getName();
+  f = message.getTitle();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = message.getEmail();
+  f = message.getTask();
   if (f.length > 0) {
     writer.writeString(
       2,
-      f
-    );
-  }
-  f = message.getAge();
-  if (f !== 0) {
-    writer.writeInt32(
-      3,
       f
     );
   }
@@ -196,10 +184,10 @@ proto.hello.HelloRequest.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional string name = 1;
+ * optional string title = 1;
  * @return {string}
  */
-proto.hello.HelloRequest.prototype.getName = function() {
+proto.hello.HelloRequest.prototype.getTitle = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
@@ -208,16 +196,16 @@ proto.hello.HelloRequest.prototype.getName = function() {
  * @param {string} value
  * @return {!proto.hello.HelloRequest} returns this
  */
-proto.hello.HelloRequest.prototype.setName = function(value) {
+proto.hello.HelloRequest.prototype.setTitle = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
 /**
- * optional string email = 2;
+ * optional string task = 2;
  * @return {string}
  */
-proto.hello.HelloRequest.prototype.getEmail = function() {
+proto.hello.HelloRequest.prototype.getTask = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
@@ -226,26 +214,8 @@ proto.hello.HelloRequest.prototype.getEmail = function() {
  * @param {string} value
  * @return {!proto.hello.HelloRequest} returns this
  */
-proto.hello.HelloRequest.prototype.setEmail = function(value) {
+proto.hello.HelloRequest.prototype.setTask = function(value) {
   return jspb.Message.setProto3StringField(this, 2, value);
-};
-
-
-/**
- * optional int32 age = 3;
- * @return {number}
- */
-proto.hello.HelloRequest.prototype.getAge = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
-};
-
-
-/**
- * @param {number} value
- * @return {!proto.hello.HelloRequest} returns this
- */
-proto.hello.HelloRequest.prototype.setAge = function(value) {
-  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 

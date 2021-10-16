@@ -3,14 +3,11 @@ import * as jspb from 'google-protobuf'
 
 
 export class HelloRequest extends jspb.Message {
-  getName(): string;
-  setName(value: string): HelloRequest;
+  getTitle(): string;
+  setTitle(value: string): HelloRequest;
 
-  getEmail(): string;
-  setEmail(value: string): HelloRequest;
-
-  getAge(): number;
-  setAge(value: number): HelloRequest;
+  getTask(): string;
+  setTask(value: string): HelloRequest;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): HelloRequest.AsObject;
@@ -22,9 +19,8 @@ export class HelloRequest extends jspb.Message {
 
 export namespace HelloRequest {
   export type AsObject = {
-    name: string,
-    email: string,
-    age: number,
+    title: string,
+    task: string,
   }
 }
 

@@ -22,12 +22,10 @@ type server struct {
 // Helloメソッドを実装することでprotoファイルで定義した内容と連携できます
 func (*server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloResponse, error) {
 	// Getxxxメソッドも自動に作成されています。
-	log.Printf("Recieved : %s", in.GetName())
-	name := in.GetName()
-	email := in.GetEmail()
-	age := in.GetAge()
-	log.Println(name, email, age)
-	result := fmt.Sprintf("Hello,%s (%d). email is %s", name, age, email)
+	title := in.GetTitle()
+	task := in.GetTask()
+	log.Println(title, task)
+	result := fmt.Sprintf("added task! (title: %s, task: %s)", title, task)
 
 	// 受け取ったメッセージを連結したレスポンスを返します。
 	return &pb.HelloResponse{

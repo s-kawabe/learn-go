@@ -8,9 +8,8 @@ service HelloService {
 }
 
 message HelloRequest {
-    string name = 1;
-    string email = 2;
-    int32 age = 3;
+    string title = 1;
+    string task = 2;
 }
 
 message HelloResponse {
